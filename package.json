@@ -1,0 +1,19 @@
+{
+  "name": "back-end-codo-a-codo",
+  "version": "1.0.0",
+  "description": "Proyecto Back-End para Codo a Codo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanlasco/back-end-codo-a-codo.git"
+  },
+  "author": "Grupo 12",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alanlasco/back-end-codo-a-codo/issues"
+  },
+  "homepage": "https://github.com/alanlasco/back-end-codo-a-codo#readme"
+}
