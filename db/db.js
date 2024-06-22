@@ -12,3 +12,4 @@ connection.connect((error) => {
   }
   console.log("Se ha conectado exitosamente");
 });
+module.exports = connection;
