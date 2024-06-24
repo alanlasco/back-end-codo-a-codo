@@ -41,7 +41,7 @@ const destroy = (req, res) => {
     }
 
     if (rows.length == 0) {
-      return res.status(404).send({ error: "No existe el producto" });
+      return res.status(404).send({ error: "No existe el juego" });
     }
     //borro la imagen
     fs.unlinkSync(
