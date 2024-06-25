@@ -9,7 +9,7 @@ const controller = require("../controllers/autores.controller");
 
 router.get("/", controller.index);
 router.get("/:id", controller.show);
-router.post("/", upload.single("imagen"), controller.store);
+router.post("/", controller.store);
 router.put("/:id", controller.update);
 router.delete("/:id", controller.destroy);
 
