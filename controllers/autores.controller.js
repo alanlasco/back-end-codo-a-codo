@@ -104,6 +104,7 @@ const destroy = (req, res) => {
 module.exports = {
   index,
   show,
+  update,
   store,
   destroy,
 };

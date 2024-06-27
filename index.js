@@ -9,7 +9,7 @@ app.use("/juegos", require("./routes/juegos.router"));
 //te agregue la ruta de autores
 app.use("/autores", require("./routes/autores.router"));
 
-const PORT = 3306;
+const PORT = 3000;
 
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
 
