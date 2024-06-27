@@ -31,11 +31,11 @@ const show = (req, res) => {
 };
 
 const store = (req, res) => {
-  console.log(req.file);
+  // console.log(req.file);
 
-  if (req.file) {
-    imageName = req.file.filename;
-  }
+  // if (req.file) {
+  //   imageName = req.file.filename;
+  // }
   const { nombre } = req.body;
 
   const sql = "INSERT INTO autores (nombre_autor) VALUES (?)";
@@ -84,7 +84,7 @@ const destroy = (req, res) => {
       return res.status(404).send({ error: "No existe el autor" });
     }
 
-    fs.unlinkSync(path.resolve(__dirname, "../public/uploads", rows[0].imagen));
+    // fs.unlinkSync(path.resolve(__dirname, "../public/uploads", rows[0].imagen));
   });
 
   sql = "DELETE FROM autores WHERE id_autores = ?";
