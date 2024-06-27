@@ -55,7 +55,7 @@ const update = (req, res) => {
   const { nombre } = req.body;
 
   const sql = "UPDATE autores SET nombre_autor = ? WHERE id_autores = ?";
-  db.query(sql, [nombre], (error, result) => {
+  db.query(sql, [nombre, id], (error, result) => {
     console.log(result);
     if (error) {
       return res.status(500).json({ error: "Intente mas tarde" });
