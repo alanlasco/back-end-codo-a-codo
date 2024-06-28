@@ -208,9 +208,11 @@ const destroy = (req, res) => {
     res.json({ mensaje: "Juego eliminado" });
   });
 };
+
 module.exports = {
   index,
   show,
   store,
+  update,
   destroy,
 };
