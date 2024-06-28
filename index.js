@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const app = express();
+require("dotenv").config();
 app.use(express.static("public"));
 
 app.use(express.json());
