@@ -1,10 +1,9 @@
-console.log("controlador de libros");
-
 const db = require("../db/db");
 const fs = require("fs");
 const path = require("path");
 
 const index = (req, res) => {
+  //get
   const sql = `SELECT l.id_libros, l.nombre_libro, l.anio_libro, l.imagen_libro, a.nombre_autor FROM libros AS l INNER JOIN autores AS a ON l.autores_id = a.id_autores`;
   db.query(sql, (error, rows) => {
     if (error) {
@@ -15,6 +14,7 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
+  //get :id
   const { id } = req.params;
 
   const sql = `SELECT l.id_libros, l.nombre_libro, l.anio_libro, l.imagen_libro, a.nombre_autor 
