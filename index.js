@@ -5,6 +5,10 @@ require("dotenv").config();
 app.use(express.static("public"));
 
 app.use(express.json());
+
+
+//te agregue la ruta de autores
+app.use("/autores", require("./routes/autores.router"));
 app.use("/juegos", require("./routes/juegos.router"));
 app.use("/libros", require("./routes/libros.router"));
 

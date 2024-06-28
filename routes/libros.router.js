@@ -1,3 +1,4 @@
+
 console.log("rutas de libros");
 
 const express = require("express");
@@ -15,3 +16,4 @@ router.put("/:id", upload.single("imagen"), controller.update);
 router.delete("/:id", controller.destroy);
 
 module.exports = router;
+
