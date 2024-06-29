@@ -5,7 +5,8 @@ require("dotenv").config();
 app.use(express.static("public"));
 
 app.use(express.json());
-app.use("/juegos", require("./routes/juegos.router"));
+// app.use("/juegos", require("./routes/juegos.router"));
+app.use("/plataformas", require("./routes/plataformas.router"));
 
 const PORT = 3000;
 
