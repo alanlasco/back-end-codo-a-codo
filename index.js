@@ -4,8 +4,12 @@ const app = express();
 require("dotenv").config();
 app.use(express.static("public"));
 
-app.use(express.json());
+const cors = require("cors");
 
+// Habilitar CORS para todas las rutas
+app.use(cors());
+
+app.use(express.json());
 
 //te agregue la ruta de autores
 app.use("/autores", require("./routes/autores.router"));
