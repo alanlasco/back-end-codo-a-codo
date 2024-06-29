@@ -3,5 +3,5 @@
 -instalaciones necesarias:
 npm i express
 npm install -D nodemon
-npm i mysql2
+c
 npm i multer
