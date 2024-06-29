@@ -12,9 +12,11 @@ app.use(cors());
 app.use(express.json());
 
 //te agregue la ruta de autores
+app.use("/plataformas", require("./routes/plataformas.router"));
 app.use("/autores", require("./routes/autores.router"));
 app.use("/juegos", require("./routes/juegos.router"));
 app.use("/libros", require("./routes/libros.router"));
+
 
 const PORT = 3000;
 
