@@ -16,7 +16,7 @@ app.use("/plataformas", require("./routes/plataformas.router"));
 app.use("/autores", require("./routes/autores.router"));
 app.use("/juegos", require("./routes/juegos.router"));
 app.use("/libros", require("./routes/libros.router"));
-
+app.use("/auth", require("./routes/auth.router"));
 
 const PORT = 3000;
 
