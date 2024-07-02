@@ -1,5 +1,3 @@
-
-
 const mysql = require("mysql2");
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -15,5 +13,3 @@ connection.connect((error) => {
   console.log("Se ha conectado exitosamente");
 });
 module.exports = connection;
-
-

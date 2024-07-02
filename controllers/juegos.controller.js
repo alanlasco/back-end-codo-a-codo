@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const index = (req, res) => {
   const sql =
-    "SELECT j.id_juegos, j.nombre_juego, CONCAT('http://localhost:3000/uploads/', j.imagen_juego) AS imagen_juego, j.url_juego, j.plataformas_id, p.plataforma FROM juegos AS j INNER JOIN plataformas AS p ON j.plataformas_id = p.id_plataformas";
+    "SELECT j.id_juegos, j.nombre_juego, CONCAT('https://11fca4b9-0b99-41cf-a9bd-a758b35ab4e1-00-h58umsv6vo8l.spock.replit.dev/uploads/', j.imagen_juego) AS imagen_juego, j.url_juego, j.plataformas_id, p.plataforma FROM juegos AS j INNER JOIN plataformas AS p ON j.plataformas_id = p.id_plataformas";
   db.query(sql, (error, rows) => {
     if (error) {
       return res.status(500).json({ error: "Intente mas tarde" });
