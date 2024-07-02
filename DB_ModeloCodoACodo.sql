@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jun 27, 2024 at 06:35 PM
--- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- Host: mysql-alanlasco.alwaysdata.net
+-- Generation Time: Jul 02, 2024 at 04:46 PM
+-- Server version: 10.6.17-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ac_db`
+-- Database: `alanlasco_codoacodo`
 --
 
 -- --------------------------------------------------------
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `autores` (
-  `id_autores` int UNSIGNED NOT NULL,
-  `nombre_autor` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `id_autores` int(10) UNSIGNED NOT NULL,
+  `nombre_autor` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -37,9 +37,10 @@ CREATE TABLE `autores` (
 --
 
 INSERT INTO `autores` (`id_autores`, `nombre_autor`) VALUES
-(1, 'prueba'),
-(3, 'autorprueba'),
-(4, 'autorpruebaprueba');
+(8, 'Oliver Bowden'),
+(9, 'Gordon Doherty'),
+(12, 'Christie Golden'),
+(13, 'Matthew Kirby');
 
 -- --------------------------------------------------------
 
@@ -48,11 +49,11 @@ INSERT INTO `autores` (`id_autores`, `nombre_autor`) VALUES
 --
 
 CREATE TABLE `juegos` (
-  `id_juegos` int UNSIGNED NOT NULL,
-  `nombre_juego` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `imagen_juego` varchar(190) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `url_juego` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `plataformas_id` int UNSIGNED DEFAULT NULL
+  `id_juegos` int(10) UNSIGNED NOT NULL,
+  `nombre_juego` varchar(100) NOT NULL,
+  `imagen_juego` varchar(190) DEFAULT NULL,
+  `url_juego` varchar(191) NOT NULL,
+  `plataformas_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -60,9 +61,11 @@ CREATE TABLE `juegos` (
 --
 
 INSERT INTO `juegos` (`id_juegos`, `nombre_juego`, `imagen_juego`, `url_juego`, `plataformas_id`) VALUES
-(47, 'Assassin\'s Creed1', '1719349575876.jpg', 'www.ubi.com', 50),
-(48, 'Assassin\'s Creed Odyssey7', '1719349315743.webp', 'www.steam.com', 49),
-(49, 'Assassin\'s Creed1', '1719349617778.jpg', 'www.ubi.com', 51);
+(55, 'Assassin\'s Creed ', '1719766070375.jpg', 'https://www.ubisoft.com/es-mx/game/assassins-creed/assassins-creed', 50),
+(56, 'Assassin\'s Creed II', '1719767058477.jpg', 'https://www.ubisoft.com/es-mx/game/assassins-creed/assassins-creed-II', 50),
+(57, 'Assassin\'s Creed III', '1719886883843.jpeg', 'https://www.ubisoft.com/es-mx/game/assassins-creed/assassins-creed-III', 49),
+(58, 'Valhalla', '1719889614158.png', 'www', 50),
+(59, 'Assassin\'s Creed IV', '1719928984282.jpeg', 'https://www.ubisoft.com/es-mx/game/assassins-creed/assassins-creed-III', 49);
 
 -- --------------------------------------------------------
 
@@ -71,11 +74,11 @@ INSERT INTO `juegos` (`id_juegos`, `nombre_juego`, `imagen_juego`, `url_juego`, 
 --
 
 CREATE TABLE `libros` (
-  `id_libros` int UNSIGNED NOT NULL,
-  `nombre_libro` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `anio_libro` int NOT NULL,
-  `imagen_libro` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `autores_id` int UNSIGNED DEFAULT NULL
+  `id_libros` int(10) UNSIGNED NOT NULL,
+  `nombre_libro` varchar(100) NOT NULL,
+  `anio_libro` int(11) NOT NULL,
+  `imagen_libro` varchar(191) NOT NULL,
+  `autores_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -83,12 +86,8 @@ CREATE TABLE `libros` (
 --
 
 INSERT INTO `libros` (`id_libros`, `nombre_libro`, `anio_libro`, `imagen_libro`, `autores_id`) VALUES
-(1, 'primerlibroprimerlibro', 199619, '1719513033345.jpg', 4),
-(2, 'libro2', 1998, 'asasdasd.png', 1),
-(3, 'primer libro', 1998, 'asdasdads.jpg', 1),
-(4, 'libro2', 1998, 'asasdasd.png', 1),
-(6, 'pruebalibropost', 1996, '1719510714270.jpg', 1),
-(8, 'pruebalibroposta', 1996, '1719510855997.jpg', 3);
+(19, 'Oddysey', 2018, '1719888285017.webp', 9),
+(20, 'The secret crusade', 2011, '1719888438898.jpg', 8);
 
 -- --------------------------------------------------------
 
@@ -97,8 +96,8 @@ INSERT INTO `libros` (`id_libros`, `nombre_libro`, `anio_libro`, `imagen_libro`,
 --
 
 CREATE TABLE `plataformas` (
-  `id_plataformas` int UNSIGNED NOT NULL,
-  `plataforma` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `id_plataformas` int(10) UNSIGNED NOT NULL,
+  `plataforma` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -109,6 +108,25 @@ INSERT INTO `plataformas` (`id_plataformas`, `plataforma`) VALUES
 (49, 'Steam'),
 (50, 'Ubisoft Play'),
 (51, 'Epic Games');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`) VALUES
+(13, 'grupo12', '$2a$08$q2Pp8VyrGYCKpUIHbApTLOP1wWD2/AyLTjlgG7ykBk.5.wu55IMPS');
 
 --
 -- Indexes for dumped tables
@@ -141,6 +159,12 @@ ALTER TABLE `plataformas`
   ADD PRIMARY KEY (`id_plataformas`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -148,25 +172,31 @@ ALTER TABLE `plataformas`
 -- AUTO_INCREMENT for table `autores`
 --
 ALTER TABLE `autores`
-  MODIFY `id_autores` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_autores` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `juegos`
 --
 ALTER TABLE `juegos`
-  MODIFY `id_juegos` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_juegos` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id_libros` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_libros` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `plataformas`
 --
 ALTER TABLE `plataformas`
-  MODIFY `id_plataformas` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id_plataformas` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -176,13 +206,13 @@ ALTER TABLE `plataformas`
 -- Constraints for table `juegos`
 --
 ALTER TABLE `juegos`
-  ADD CONSTRAINT `juegos_ibfk_1` FOREIGN KEY (`plataformas_id`) REFERENCES `plataformas` (`id_plataformas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `juegos_ibfk_1` FOREIGN KEY (`plataformas_id`) REFERENCES `plataformas` (`id_plataformas`);
 
 --
 -- Constraints for table `libros`
 --
 ALTER TABLE `libros`
-  ADD CONSTRAINT `libros_ibfk_1` FOREIGN KEY (`autores_id`) REFERENCES `autores` (`id_autores`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `libros_ibfk_1` FOREIGN KEY (`autores_id`) REFERENCES `autores` (`id_autores`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
